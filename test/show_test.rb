@@ -1,9 +1,9 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/character'
-require '/lib/show'
+require './lib/show'
 
-def ShowTest < Minitest::Test
+class ShowTest < Minitest::Test
   def test_it_exists
     kitt = Character.new({name: "KITT", actor: "William Daniels", salary: 1_000_000})
     michael_knight = Character.new({name: "Michael Knight", actor: "David Hasselhoff", salary: 1_600_000})
@@ -23,7 +23,6 @@ def ShowTest < Minitest::Test
   end
 
   def test_it_can_calculate_total_salary
-    skip
     kitt = Character.new({name: "KITT", actor: "William Daniels", salary: 1_000_000})
     michael_knight = Character.new({name: "Michael Knight", actor: "David Hasselhoff", salary: 1_600_000})
     knight_rider = Show.new("Knight Rider", "Glen Larson", [michael_knight, kitt])
@@ -32,7 +31,6 @@ def ShowTest < Minitest::Test
   end
 
   def test_it_can_return_highest_paid_actor
-    skip
     kitt = Character.new({name: "KITT", actor: "William Daniels", salary: 1_000_000})
     michael_knight = Character.new({name: "Michael Knight", actor: "David Hasselhoff", salary: 1_600_000})
     knight_rider = Show.new("Knight Rider", "Glen Larson", [michael_knight, kitt])
@@ -41,11 +39,10 @@ def ShowTest < Minitest::Test
   end
 
   def test_it_can_return_actors
-    skip
     kitt = Character.new({name: "KITT", actor: "William Daniels", salary: 1_000_000})
     michael_knight = Character.new({name: "Michael Knight", actor: "David Hasselhoff", salary: 1_600_000})
     knight_rider = Show.new("Knight Rider", "Glen Larson", [michael_knight, kitt])
 
-    assert_equal ["David Hasselhoff", "William Daniels"]
+    assert_equal ["David Hasselhoff", "William Daniels"], knight_rider.actors
   end
 end
